@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#081018">
+  <meta name="description" content="WR AI: prototipo di assistente vocale per il casco da moto.">
+  <title>WR AI · Assistente da casco</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="WR AI home">
+        <span class="brand-mark">WR<span>+</span></span>
+        <span class="brand-copy"><strong>WR AI</strong><small>RIDE ASSISTANT</small></span>
+      </a>
+      <div class="top-status"><span class="status-dot" id="serverDot"></span><span id="serverStatus">Connessione in verifica</span></div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="eyebrow"><span class="eyebrow-line"></span> IL TUO COPILOTA VOCALE</div>
+        <h1>La strada.<br><span>La tua voce.</span></h1>
+        <p class="hero-text">Un assistente personale pensato per parlare con te attraverso l'interfono del casco.</p>
+        <div class="bike-chip"><span class="bike-icon">◈</span><span><strong>Husqvarna WR 125 2T</strong><small>Profilo moto iniziale</small></span><span class="chip-edit">PROFILO</span></div>
+      </section>
+
+      <section class="assistant-card" aria-label="Assistente vocale">
+        <div class="card-head"><div><span class="section-label">ASSISTENTE</span><h2 id="assistantTitle">Pronto quando vuoi.</h2></div><span class="live-pill"><span></span> WR CORE</span></div>
+        <div class="orb-wrap"><div class="orb-ring ring-one"></div><div class="orb-ring ring-two"></div><div class="orb" id="orb"><div class="orb-inner"><span class="sound-wave"><i></i><i></i><i></i><i></i><i></i></span></div></div></div>
+        <p class="assistant-hint" id="assistantHint">Premi il microfono e fai una domanda.</p>
+        <button id="micButton" class="mic-button" type="button" aria-label="Parla con WR AI"><span class="mic-symbol">🎙</span><span id="micButtonText">Premi per parlare</span></button>
+        <div class="small-note" id="speechSupport">La prima versione usa il riconoscimento vocale disponibile nel browser.</div>
+      </section>
+
+      <section class="chat-card">
+        <div class="chat-head"><div><span class="section-label">CONVERSAZIONE</span><h2>Parliamo.</h2></div><button id="clearChat" class="text-button" type="button">Pulisci</button></div>
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="message assistant-message"><span class="message-avatar">WR</span><div><span class="message-author">WR AI <small>ORA</small></span><p>Ciao! Sono il tuo copilota vocale. Possiamo iniziare a testare il sistema.</p></div></div>
+        </div>
+        <form id="chatForm" class="composer">
+          <label class="visually-hidden" for="messageInput">Scrivi una domanda</label>
+          <input id="messageInput" type="text" placeholder="Scrivi qui una domanda…" autocomplete="off" maxlength="4000">
+          <button type="submit" class="send-button" aria-label="Invia messaggio">↑</button>
+        </form>
+      </section>
+
+      <section class="quick-section"><div class="section-label">PROVA A CHIEDERE</div><div class="quick-prompts"><button type="button" data-prompt="Quanta miscela devo fare con 5 litri di benzina al 2,2%?">Calcolo miscela <span>↗</span></button><button type="button" data-prompt="Aiutami a capire perché la mia moto borbotta quando accelero.">Problema alla moto <span>↗</span></button><button type="button" data-prompt="Che cosa puoi fare per aiutarmi mentre viaggio?">Le tue funzioni <span>↗</span></button></div></section>
+
+      <section class="connection-card"><div class="connection-icon">⌁</div><div class="connection-copy"><strong>Interfono Bluetooth</strong><p>Collega l'interfono alle impostazioni Bluetooth dell'iPhone. Il sito proverà a usare il microfono e l'uscita audio selezionati dal sistema.</p></div><span class="connection-state" id="audioStatus">DA VERIFICARE</span></section>
+      <p class="safety-note">Prototipo in sviluppo. Provalo da fermo: non guardare né toccare il telefono mentre guidi. Le funzioni vocali e Bluetooth dipendono dal browser e dal dispositivo.</p>
+    </main>
+    <footer><span>WR AI <b>·</b> PROTOTIPO 0.1</span><span>BUILT FOR THE RIDE</span></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
